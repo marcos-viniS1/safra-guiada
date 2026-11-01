@@ -1,8 +1,8 @@
 package com.cafesmart.propriedade;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.List;
 
 @Entity
 @Table(name = "lavouras")
@@ -19,8 +19,6 @@ public class Lavoura {
 
     @ManyToOne
     @JoinColumn(name = "propriedade_id", nullable = false)
+    @JsonIgnoreProperties("lavouras") // Interrompe o loop circular
     private Propriedade propriedade;
-
-    @OneToMany(mappedBy = "lavoura", cascade = CascadeType.ALL)
-    private List<Talhao> talhoes;
 }

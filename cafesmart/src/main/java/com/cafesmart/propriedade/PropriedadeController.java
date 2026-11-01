@@ -1,15 +1,15 @@
 package com.cafesmart.propriedade;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/propriedades")
+@RequiredArgsConstructor
 public class PropriedadeController {
 
-    @Autowired
-    private PropriedadeRepository repository;
+    private final PropriedadeRepository repository;
 
     @PostMapping
     public Propriedade registar(@RequestBody Propriedade propriedade) {

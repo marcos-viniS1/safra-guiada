@@ -1,8 +1,8 @@
 package com.cafesmart.propriedade;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
 public interface LavouraRepository extends JpaRepository<Lavoura, Long> {
+    List<Lavoura> findByPropriedadeId(Long propriedadeId);
 }

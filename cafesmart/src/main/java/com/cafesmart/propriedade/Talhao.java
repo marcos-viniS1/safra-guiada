@@ -1,5 +1,6 @@
 package com.cafesmart.propriedade;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,5 +23,6 @@ public class Talhao {
 
     @ManyToOne
     @JoinColumn(name = "lavoura_id", nullable = false)
+    @JsonIgnoreProperties("talhoes") // Interrompe o loop circular
     private Lavoura lavoura;
 }
