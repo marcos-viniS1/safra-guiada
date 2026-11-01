@@ -14,6 +14,7 @@ public class TarefaController {
 
     private final TarefaRepository tarefaRepository;
     private final TalhaoRepository talhaoRepository;
+    private final CalendarioService calendarioService;
 
     @PostMapping("/talhao/{talhaoId}")
     public ResponseEntity<Tarefa> criar(@PathVariable Long talhaoId, @RequestBody Tarefa tarefa) {
@@ -23,6 +24,16 @@ public class TarefaController {
                     return ResponseEntity.ok(tarefaRepository.save(tarefa));
                 })
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/talhao/{talhaoId}/gerar-manejo-padrao")
+    public ResponseEntity<List<Tarefa>> gerarManejoPadrao(@PathVariable Long talhaoId) {
+        try {
+            List<Tarefa> tarefas = calendarioService.gerarManejoPadrao(talhaoId);
+            return ResponseEntity.ok(tarefas);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/talhao/{talhaoId}")
