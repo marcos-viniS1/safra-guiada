@@ -1,7 +1,7 @@
-[caf_smart_readme.md](https://github.com/user-attachments/files/34246253/caf_smart_readme.md)
-# ☕ Café Smart - Plataforma de Manejo e Gestão Cafeeira
+[safra guiada_readme.md](https://github.com/user-attachments/files/34246253/safra-guiada_readme.md)
+# ☕ Safra Guiada - Plataforma de Manejo e Gestão Cafeeira
 
-O **Café Smart** é uma solução para gestão agrícola focada na cafeicultura. Projetado sobre uma arquitetura de **Monólito Modular**, o sistema centraliza o controle do domínio agrícola (propriedades, lavouras e talhões), planejamento do manejo anual de tarefas, monitoramento fitossanitário com emissão de alertas e controle financeiro por hectare e saca.
+O **Safra Guiada** é uma solução para gestão agrícola focada na cafeicultura. Projetado sobre uma arquitetura de **Monólito Modular**, o sistema centraliza o controle do domínio agrícola (propriedades, lavouras e talhões), planejamento do manejo anual de tarefas, monitoramento fitossanitário com emissão de alertas e controle financeiro por hectare e saca.
 
 ---
 
@@ -19,8 +19,8 @@ O **Café Smart** é uma solução para gestão agrícola focada na cafeicultura
 ## 🏗️ Estrutura da Arquitetura (Monólito Modular)
 
 ```txt
-src/main/java/com/cafesmart/
-├── CafesmartApplication.java
+src/main/java/com/safraguiada/
+├── SafraGuiadaApplication.java
 ├── propriedade/   # Core agrícola (Propriedades, Lavouras e Talhões)
 ├── calendario/    # Gestão de tarefas e ciclo do manejo anual do café
 ├── agronomia/     # Inspeções fitossanitárias e alertas (Ferrugem, Broca, etc.)
@@ -61,8 +61,8 @@ Relacionamento hierárquico: `Propriedade` **(1 : N)** ➔ `Lavoura` **(1 : N)**
 
 1. **Clonar o repositório:**
    ```bash
-   git clone https://github.com/marcos-viniS1/cafe-smart.git
-   cd cafe-smart
+   git clone https://github.com/marcos-viniS1/safra-guiada.git
+   cd safra-guiada
    ```
 
 2. **Iniciar o container do PostgreSQL:**
@@ -75,7 +75,7 @@ Relacionamento hierárquico: `Propriedade` **(1 : N)** ➔ `Lavoura` **(1 : N)**
      ```cmd
      mvnw spring-boot:run
      ```
-   - **Via IDE (VS Code):** Execute diretamente pela classe `CafesmartApplication.java`.
+   - **Via IDE (VS Code):** Execute diretamente pela classe `SafraGuiadaApplication.java`.
 
 4. Servidor estará ativo em: `http://localhost:8080`
 
