@@ -1,11 +1,13 @@
 package com.safraguiada.propriedade;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "lavouras")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +20,10 @@ public class Lavoura {
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "propriedade_id", nullable = false)
-    @JsonIgnoreProperties("lavouras") // Interrompe o loop circular
+    @JoinColumn(name = "propriedade_id")
     private Propriedade propriedade;
+
+    // Adicione ou confirme este relacionamento:
+    @OneToMany(mappedBy = "lavoura", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Talhao> talhoes = new ArrayList<>();
 }
